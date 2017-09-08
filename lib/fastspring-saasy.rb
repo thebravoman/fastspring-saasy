@@ -10,6 +10,7 @@ require_relative 'fastspring-saasy/order'
 require_relative 'fastspring-saasy/item'
 require_relative 'fastspring-saasy/payment'
 require_relative 'fastspring-saasy/address'
+require_relative 'fastspring-saasy/exception'
 
 require_relative 'fastspring-saasy/build/localized_store_prices'
 require_relative 'fastspring-saasy/localized_store_price'
@@ -20,5 +21,5 @@ require_relative 'fastspring-saasy/error'
 module FastSpring
   SITE_URL = 'http://sites.fastspring.com'
   API_URL = 'https://api.fastspring.com'
-  VERSION = "0.6.2"
+  VERSION = "0.6.3"
 end

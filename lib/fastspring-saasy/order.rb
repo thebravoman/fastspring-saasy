@@ -2,7 +2,7 @@ module FastSpring
   class Order < PrivateApiBase
     # Get the order from Saasy
     def find
-      @response = self.class.get(base_order_path, :basic_auth => @auth, :ssl_ca_file => @ssl_ca_file)
+      @response = self.class.get(base_order_path, :basic_auth => @auth)
       self
     end
 
@@ -24,6 +24,10 @@ module FastSpring
 
     def payment
       payments[0]
+    end
+
+    def status_changed
+      value_for('statusChanged')
     end
 
     # Return the order reference

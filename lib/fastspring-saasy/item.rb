@@ -5,7 +5,7 @@ module FastSpring
       @product_display = details.fetch('productDisplay')
       @product_name = details.fetch('productName')
       @quantity = details.fetch('quantity')
-      @subscription_reference = details.fetch('subscriptionReference')
+      # @subscription_reference = details.fetch('subscriptionReference')
     end
   end
 end

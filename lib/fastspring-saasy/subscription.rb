@@ -9,13 +9,21 @@ module FastSpring
 
     # Get the subscription from Saasy
     def find
-      @response = self.class.get(base_subscription_path, :basic_auth => @auth, :ssl_ca_file => @ssl_ca_file)
+      @response = self.class.get(base_subscription_path, :basic_auth => @auth)
+      if @response.code != 200
+        exception = FastSpring::Exception.new(@response.code, @response.body)
+        raise exception, "An error occurred calling the FastSpring subscription service", caller
+      end
       self
     end
 
     # Update the subscription from Saasy
     def update!(options={})
       @response = self.class.put(base_subscription_path, :body => Gyoku.xml(subscription: options), :headers => {'Content-Type' => 'application/xml'},:basic_auth => @auth)
+      if @response.code != 200
+        exception = FastSpring::Exception.new(@response.code, @response.body)
+        raise exception, "An error occurred calling the FastSpring subscription service", caller
+      end
       self
     end
 
